@@ -3,15 +3,19 @@
 /* eslint-disable react/prop-types */
 import { AiOutlineShoppingCart } from "react-icons/ai";
 
-export const ProductsCard = ({ filterCriteria }) => {
+export const ProductsCard = ({ data }) => {
   return (
     <>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
-        {filterCriteria.map((item, index) => (
+        {data.map((item, index) => (
           <div key={index} className="relative group">
             <div className="max-w-xs rounded overflow-hidden transition duration-300 ease-in-out transform hover:scale-105">
-              <div className="bg-gray-200">
-                <img className="w-full" src={item.imgUrl} alt="Product" />
+              <div className="bg-gray-200 h-[40vh]">
+                <img
+                  className="w-full object-cover"
+                  src={item.imgUrl}
+                  alt="Product"
+                />
               </div>
 
               <div className="absolute inset-0 bg-black/20 opacity-0 flex items-center justify-center transition-opacity duration-500 group-hover:opacity-100">

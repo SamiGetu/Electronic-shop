@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import headphone from "../assets/images/headset.png";
 import redHeadPhone from "../assets/images/redHeadPhones.png";
 import gaminlaptop from "../assets/images/gaminlaptop.png";
@@ -10,17 +11,22 @@ import { IoShieldCheckmarkOutline } from "react-icons/io5";
 import { LiaShippingFastSolid } from "react-icons/lia";
 import { ProductsCard } from "./../components/Ui/ProductsCard";
 import Products from "../Data/ProductsData/Products";
-import { useEffect, useState } from "react";
+import pavilion from "../assets/images/pavilion.png";
 
 export const Home = () => {
   const [newArrived, setNewArrived] = useState(Products);
+  const [bestSell, setBestSell] = useState(Products);
 
   useEffect(() => {
     const filterNewArrived = Products.filter(
       (item) => item.catagori === "newArivall"
     );
-    console.log("Filtered Products:", filterNewArrived); // Debugging
+    const filterBestSell = Products.filter(
+      (item) => item.catagori === "bestSell"
+    );
+
     setNewArrived(filterNewArrived);
+    setBestSell(filterBestSell);
   }, []);
   return (
     <>
@@ -28,7 +34,6 @@ export const Home = () => {
       <section>
         <div className="flex justify-center items-center mt-5">
           <div className="bg-[url('/image/blank.jpg')] bg-cover bg-center bg-fixed w-[80vw] h-[70vh] rounded-[5rem]">
-            {/* content */}
             <div className="flex  justify-center items-center px-20">
               <div className="space-y-3">
                 <p className="md:text-lg text-sm text-gray-500 font-medium">
@@ -56,6 +61,7 @@ export const Home = () => {
           </div>
         </div>
       </section>
+      {/* highlights */}
       <section className="mt-[5rem] mb-[10rem]">
         <div>
           <div className="flex flex-wrap justify-center items-center gap-10">
@@ -86,6 +92,7 @@ export const Home = () => {
           </div>
         </div>
       </section>
+      {/* Services */}
       <section>
         <div className="flex flex-wrap justify-center items-center gap-20 text-gray-500 font-medium">
           <Service
@@ -102,10 +109,32 @@ export const Home = () => {
           />
         </div>
       </section>
+      {/* newArrived Products */}
       <section className="mt-[10rem] flex justify-center">
         <div className="flex flex-col justify-center">
           <h1 className="text-4xl font-medium mb-20">New Arrival</h1>
-          <ProductsCard filterCriteria={newArrived} />
+          <ProductsCard data={newArrived} />
+        </div>
+      </section>
+      {/* discount section */}
+      <section className="mt-[20rem]">
+        <div className="flex flex-wrap justify-center items-center">
+          <div className="bg-black h-[20rem] rounded-[5rem] flex justify-center items-center">
+            <div>
+              <p className="text-2xl text-white font-medium">Big Discount</p>
+              <h3 className="text-7xl text-white font-semibold ">Hp Omen</h3>
+              <p className="text-2xl text-white font-medium">25% OFF</p>
+            </div>
+
+            <img width={"50%"} src={pavilion} alt="" />
+          </div>
+        </div>
+      </section>
+      {/* Best Sell */}
+      <section className="mt-[10rem] flex justify-center">
+        <div className="flex flex-col justify-center">
+          <h1 className="text-4xl font-medium mb-20">New Arrival</h1>
+          <ProductsCard data={bestSell} />
         </div>
       </section>
     </>

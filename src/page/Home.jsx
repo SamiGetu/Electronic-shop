@@ -102,8 +102,9 @@ export const Home = () => {
           />
         </div>
       </section>
-      <section>
-        <div className="flex justify-center mt-[10rem]">
+      <section className="mt-[10rem] flex justify-center">
+        <div className="flex flex-col justify-center">
+          <h1 className="text-4xl font-medium mb-20">New Arrival</h1>
           <ProductsCard filterCriteria={newArrived} />
         </div>
       </section>

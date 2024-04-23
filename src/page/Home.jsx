@@ -4,8 +4,24 @@ import gaminlaptop from "../assets/images/gaminlaptop.png";
 import jblspeaker from "../assets/images/speaker.png";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { Service } from "../components/Service/Service";
+import { GiReturnArrow } from "react-icons/gi";
+import { IoShieldCheckmarkOutline } from "react-icons/io5";
+import { LiaShippingFastSolid } from "react-icons/lia";
+import { ProductsCard } from "./../components/Ui/ProductsCard";
+import Products from "../Data/ProductsData/Products";
+import { useEffect, useState } from "react";
 
 export const Home = () => {
+  const [newArrived, setNewArrived] = useState(Products);
+
+  useEffect(() => {
+    const filterNewArrived = Products.filter(
+      (item) => item.catagori === "newArivall"
+    );
+    console.log("Filtered Products:", filterNewArrived); // Debugging
+    setNewArrived(filterNewArrived);
+  }, []);
   return (
     <>
       {/* landing section */}
@@ -40,9 +56,9 @@ export const Home = () => {
           </div>
         </div>
       </section>
-      <section className="h-screen mt-[5rem] ">
+      <section className="mt-[5rem] mb-[10rem]">
         <div>
-          <div className="flex justify-center items-center gap-10">
+          <div className="flex flex-wrap justify-center items-center gap-10">
             <div className="bg-red-700 w-[25rem] h-[20rem] rounded-[3rem] flex flex-col items-center justify-center">
               <motion.img
                 whileHover={{ scale: 1.2 }}
@@ -51,7 +67,7 @@ export const Home = () => {
                 className="z-10"
               />
             </div>
-            <div className="bg-[#080808] w-[25rem] h-[20rem] rounded-[3rem] flex flex-col items-center justify-center">
+            <div className="bg-[#080808] w-[35rem] h-[20rem] rounded-[3rem] flex flex-col items-center justify-center">
               <motion.img
                 whileHover={{ scale: 1.2 }}
                 src={redHeadPhone}
@@ -68,6 +84,27 @@ export const Home = () => {
               />
             </div>
           </div>
+        </div>
+      </section>
+      <section>
+        <div className="flex flex-wrap justify-center items-center gap-20 text-gray-500 font-medium">
+          <Service
+            icon={<LiaShippingFastSolid size={"2rem"} />}
+            text="Free Shipping"
+          />
+          <Service
+            icon={<GiReturnArrow size={"2rem"} />}
+            text="Return Police"
+          />
+          <Service
+            icon={<IoShieldCheckmarkOutline size={"2rem"} />}
+            text="2 Year Warranty"
+          />
+        </div>
+      </section>
+      <section>
+        <div className="flex justify-center mt-[10rem]">
+          <ProductsCard filterCriteria={newArrived} />
         </div>
       </section>
     </>

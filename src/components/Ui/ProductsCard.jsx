@@ -10,9 +10,9 @@ export const ProductsCard = ({ data }) => {
         {data.map((item, index) => (
           <div key={index} className="relative group">
             <div className="max-w-xs rounded overflow-hidden transition duration-300 ease-in-out transform hover:scale-105">
-              <div className="bg-gray-200 h-[40vh]">
+              <div className="bg-gray-200 h-[40vh] flex items-center justify-center">
                 <img
-                  className="w-full object-cover"
+                  className="max-w-full h-auto object-cover"
                   src={item.imgUrl}
                   alt="Product"
                 />

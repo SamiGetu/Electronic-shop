@@ -9,7 +9,6 @@ export const Header = () => {
   const [open, setOpen] = useState(false);
   const navLink = [
     { Name: "Home", path: "/" },
-    { Name: "About", path: "about" },
     { Name: "Shop", path: "shop" },
     { Name: "Blog", path: "blog" },
     { Name: "Contact", path: "contact" },

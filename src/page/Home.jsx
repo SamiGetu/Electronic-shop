@@ -12,6 +12,7 @@ import { LiaShippingFastSolid } from "react-icons/lia";
 import { ProductsCard } from "./../components/Ui/ProductsCard";
 import Products from "../Data/ProductsData/Products";
 import pavilion from "../assets/images/pavilion.png";
+import bluejoystick from "../assets/images/Bluejoystick.png";
 
 export const Home = () => {
   const [newArrived, setNewArrived] = useState(Products);
@@ -124,6 +125,9 @@ export const Home = () => {
               <p className="text-2xl text-white font-medium">Big Discount</p>
               <h3 className="text-7xl text-white font-semibold ">Hp Omen</h3>
               <p className="text-2xl text-white font-medium">25% OFF</p>
+              <button className="text-white px-14 py-2 border-[1px] border-blue-700 rounded-md mt-10 hover:bg-blue-800 duration-500">
+                Buy Now
+              </button>
             </div>
 
             <img width={"50%"} src={pavilion} alt="" />
@@ -133,10 +137,26 @@ export const Home = () => {
       {/* Best Sell */}
       <section className="mt-[10rem] flex justify-center">
         <div className="flex flex-col justify-center">
-          <h1 className="text-4xl font-medium mb-20">New Arrival</h1>
+          <h1 className="text-4xl font-medium mb-20">Best Sell</h1>
           <ProductsCard data={bestSell} />
         </div>
       </section>
+      {/* deal of the week */}
+      <section>
+        <div className="flex justify-center  mt-[20rem]">
+          <div className="w-[80%] h-[30vh]  bg-[#287fa3] rounded-[5rem] flex flex-wrap justify-end  gap-[10rem]">
+            <div className="p-10">
+              <h2 className="text-xl text-white font-bold">Deal of the Week</h2>
+              <h3 className="text-white text-7xl">PS 4 Joystick </h3>
+              <button className="px-10 py-2 text-white bg-blue-800 rounded-md font-semibold mt-10">
+                Buy Now
+              </button>
+            </div>
+            <img src={bluejoystick} className="w-[50%]" alt="" />
+          </div>
+        </div>
+      </section>
+      <section></section>
     </>
   );
 };

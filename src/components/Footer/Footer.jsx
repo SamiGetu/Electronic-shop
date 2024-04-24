@@ -1,3 +1,15 @@
 export const Footer = () => {
-  return <div>Footer</div>;
+  return (
+    <>
+      <footer>
+        <div>
+          <div></div>
+          <div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+      </footer>
+    </>
+  );
 };

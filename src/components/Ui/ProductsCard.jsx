@@ -2,8 +2,11 @@
 /* eslint-disable react/no-unknown-property */
 /* eslint-disable react/prop-types */
 import { AiOutlineShoppingCart } from "react-icons/ai";
+import Products from "../../Data/ProductsData/Products";
+import { useState } from "react";
 
 export const ProductsCard = ({ data }) => {
+  const [productData, setProductsData] = useState(Products);
   return (
     <>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
